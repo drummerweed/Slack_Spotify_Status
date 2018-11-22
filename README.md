@@ -5,7 +5,7 @@ This is a script that will run in a Terminal or iTerm window and monitor your Sp
 
 # Setup
 Create a file in your Home directory called `.slacktoken.cfg`
-You need to get a Legacy Token from [here]:(https://api.slack.com/custom-integrations/legacy-tokens)
+You need to get a Legacy Token from [here](https://api.slack.com/custom-integrations/legacy-tokens)
 This file needs to have the following text:
 ```
 SLACK_TOKEN="Your Token Here"
