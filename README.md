@@ -1,7 +1,7 @@
 # Slack_Spotify_Status
 First things first, props to the original script, with updates found here:
 [Original Script](https://gist.github.com/jgamblin/9701ed50398d138c65ead316b5d11b26) by [jgamblin](https://gist.github.com/jgamblin)  
-This is a script that will run in a Terminal or iTerm window and monitor your Spotify current playing song. 
+This is a script that will run in a Terminal or iTerm window and monitor your Spotify current playing song and update your Slack status with it. 
 
 # Setup
 **Required Spotify**  
