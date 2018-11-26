@@ -12,7 +12,7 @@ This file needs to have the following text:
 ```
 SLACK_TOKEN="Your Token Here"
 ```
-This prevents your token from being in the same location as your script. 
+This prevents your token from being in the same location as your script.  
 One note that I recently discovered. The emoticon that is in the code has to match one that you have in your Slack instance. Otherwise it won't work. 
 
 # Instalation
