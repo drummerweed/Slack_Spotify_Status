@@ -34,6 +34,7 @@ while true; do
             echo "Spotify: "$state" - "$SONG
             echo "Same song playing, will not update Slack Status"
             if_playing=$[$if_playing +1]
+            if_paused=1
         done
     fi
 
@@ -44,6 +45,7 @@ while true; do
             echo "Spotify: "$state
             curl -s -d "payload=$json" "https://slack.com/api/users.profile.set?token="$APIKEY"&profile=%7B%22status_text%22%3A%22%20Spotify%20Paused%22%2C%22status_emoji%22%3A%22%3Aheadphones%3A%22%7D" > /dev/null
             if_paused=$[$if_paused +1]
+            if_playing=1
         fi
     elif [ "$check_song" != "$SONG" ]; then
         date
