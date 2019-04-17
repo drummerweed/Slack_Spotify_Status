@@ -13,7 +13,7 @@ trap onexit INT
 
 function reset() {
     echo 'Resetting status'
-    curl -s -d "payload=$json" "https://slack.com/api/users.profile.set?token="$APIKEY"&profile=%7B%22status_text%22%3A%22%20Hello%22%2C%22status_emoji%22%3A%22%3Asmile%3A%22%7D" > /dev/null
+    curl -s -d "payload=$json" "https://slack.com/api/users.profile.set?token="$APIKEY"&profile=%7B%22status_text%22%3A%22%20Call%20The%20Doctor%22%2C%22status_emoji%22%3A%22%3Atardis-628%3A%22%7D" > /dev/null
 }
 
 function onexit() {
@@ -48,10 +48,11 @@ while true; do
             if_playing=1
         fi
     elif [ "$check_song" != "$SONG" ]; then
-        date
+        # date
         echo "Spotify: "$state
         URLSONG=$(echo "$SONG" | perl -MURI::Escape -ne 'chomp;print uri_escape($_),"\n"')
         echo $SONG
+        
         curl -s -d "payload=$json" "https://slack.com/api/users.profile.set?token="$APIKEY"&profile=%7B%22status_text%22%3A%22"$URLSONG"%20on%20Spotify%22%2C%22status_emoji%22%3A%22%3Aheadphones%3A%22%7D"  > /dev/null
         check_song=$SONG
         if_paused=1
