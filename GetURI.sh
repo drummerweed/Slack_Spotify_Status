@@ -1,14 +1,9 @@
 #!/bin/bash
 
-USER_CONFIG_DEFAULTS="SLACK_TOKEN=\"\"\n";
-USER_CONFIG_FILE="${HOME}/.slacktoken.cfg";
-if ! [[ -f "${USER_CONFIG_FILE}" ]]; then
-    touch "${USER_CONFIG_FILE}";
-    echo -e "${USER_CONFIG_DEFAULTS}" > "${USER_CONFIG_FILE}";
-fi
-source "${USER_CONFIG_FILE}";
-APIKEY=$SLACK_TOKEN
+TOKEN_LOC="${HOME}/.bin/.token"
+TOKEN=$(<$TOKEN_LOC)
+
 
 uri=$(osascript -e 'tell application "Spotify" to spotify url of current track')
-json="{\"text\": \"$uri\"}"
-curl -s -d "payload=$json" $webhook
+URL="https://slack.com/api/chat.postMessage?token="${TOKEN}"&channel=%23spotify-playlist&text="${uri}"&as_user=Patrick&pretty=1"
+curl -s -d "payload=$json" $URL
